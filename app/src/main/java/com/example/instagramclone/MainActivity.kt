@@ -30,6 +30,7 @@ class MainActivity : ComponentActivity() {
                     }
                     when(selectedTabIndex){
                         0-> HomeScreen()
+                        1-> SearchScreen()
                         2->ReelsView()
                         3-> NotificationScreen()
                         4-> ProfileScreen()
@@ -95,6 +96,8 @@ fun DefaultPreview() {
         }
         when(selectedTabIndex){
             0-> HomeScreen()
+            1-> SearchScreen()
+            2-> ReelsView()
             3-> NotificationScreen()
             4-> ProfileScreen()
         }

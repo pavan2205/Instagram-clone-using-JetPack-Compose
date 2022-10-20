@@ -32,39 +32,40 @@ import androidx.compose.ui.text.buildAnnotatedString
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextOverflow
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 
 val highl= listOf(
     Highlight(
         1,
-        R.drawable.sethrollins,
-        "wwe"
+        R.drawable.post4,
+        "vibes"
     ),
     Highlight(
         2,
-        R.drawable.sethrollins,
-        "wwe"
+        R.drawable.cat,
+        "Cats"
     ),
     Highlight(
         3,
-        R.drawable.sethrollins,
-        "wwe"
+        R.drawable.post6,
+        "Cars"
     ),
     Highlight(
         4,
-        R.drawable.sethrollins,
-        "wwe"
+        R.drawable.ckay,
+        "🤩"
     ),
     Highlight(
         5,
-        R.drawable.sethrollins,
-        "wwe"
+        R.drawable.post7,
+        "💛"
     ),
     Highlight(
         6,
-        R.drawable.sethrollins,
-        "wwe"
+        R.drawable.bg1,
+        "Views"
     ),
 )
 
@@ -80,39 +81,40 @@ fun ProfileScreen(){
     }
     Column(modifier = Modifier.fillMaxSize()) {
         Spacer(modifier = Modifier.height(6.dp))
-        TopBar(name = "SethRollins22 _offical", modifier = Modifier)
+        TopBar(name = "pavannaik22 _offical", modifier = Modifier)
         Spacer(modifier = Modifier.height(9.dp))
         ProfileSection(modifier = Modifier)
-        ProfileDescription(displayName = "Seth Rollins", description = "Currently pursuing a Bachelor's, Master's or PhD degree in Computer Science or related technical field" )
+        ProfileDescription(displayName = "Pavan Naik 💙",
+            description = "Football ⚽ | travelling 🚅 | web dev 💻 | App dev 📱 | music 🎶 | Anime lover🤩 |" )
         Spacer(modifier = Modifier.height(5.dp))
         HighlightsSection(highl)
         Spacer(modifier = Modifier.heightIn(7.dp))
         IconsColumn(modifier = Modifier, tabsdetails){selectedTabIndex=it}
         when(selectedTabIndex){
             0-> PostSection(posts = listOf(
-                painterResource(id =R.drawable.sethrollins ),
-                        painterResource(id =R.drawable.sethrollins ),
-                        painterResource(id = R.drawable.sethrollins),
-                        painterResource(id = R.drawable.sethrollins),
-                        painterResource(id = R.drawable.sethrollins),
-                        painterResource(id = R.drawable.sethrollins),
-                painterResource(id = R.drawable.sethrollins)
+                painterResource(id =R.drawable.bg1 ),
+                        painterResource(id =R.drawable.post7 ),
+                        painterResource(id = R.drawable.cat),
+                        painterResource(id = R.drawable.ckay),
+                        painterResource(id = R.drawable.post2),
+                        painterResource(id = R.drawable.post1),
+                painterResource(id = R.drawable.post5)
             ) , modifier = Modifier)
 
             1-> PostSection(posts = listOf(
-                painterResource(id = R.drawable.naruto),
-                painterResource(id = R.drawable.naruto),
-                painterResource(id = R.drawable.naruto),
-                painterResource(id = R.drawable.naruto),
-                painterResource(id = R.drawable.naruto),
+                painterResource(id =R.drawable.bg1 ),
+                painterResource(id =R.drawable.post7 ),
+                painterResource(id = R.drawable.cat),
+                painterResource(id = R.drawable.ckay),
+                painterResource(id = R.drawable.post1),
             ), modifier = Modifier)
 
             2-> PostSection(posts = listOf(
+                painterResource(id =R.drawable.bg1 ),
+                painterResource(id =R.drawable.post7 ),
                 painterResource(id = R.drawable.cat),
-                painterResource(id = R.drawable.cat),
-                painterResource(id = R.drawable.cat),
-                painterResource(id = R.drawable.cat),
-                painterResource(id = R.drawable.cat),
+                painterResource(id = R.drawable.ckay),
+                painterResource(id = R.drawable.post1),
             ), modifier = Modifier)
         }
     }
@@ -152,7 +154,7 @@ fun ProfileSection(
                 .padding(horizontal = 20.dp)
         ) {
             RoundImage(
-                image = painterResource(id = R.drawable.sethrollins),
+                image = painterResource(id = R.drawable.main),
                 modifier = Modifier
                     .size(70.dp)
                     .weight(3f)
@@ -249,7 +251,7 @@ fun HighLight(image:Int,text:String){
                 width = 1.dp, color = Color.LightGray, shape = CircleShape
             )
             .padding(4.dp)
-            .clip(CircleShape)
+            .clip(CircleShape), contentScale = ContentScale.Crop
         )
         Spacer(modifier = Modifier.height(3.dp))
         Text(text =text, modifier = Modifier.width(70.dp), textAlign = TextAlign.Center)
@@ -292,4 +294,12 @@ fun PostSection(posts:List<Painter>,modifier: Modifier){
                 .border(width = 1.dp, color = Color.White))
         }
     }
+    Spacer(modifier = Modifier.height(40.dp))
+}
+
+
+@Preview(showBackground = true, showSystemUi = true)
+@Composable
+fun ProfileScreenPreview(){
+    ProfileScreen()
 }

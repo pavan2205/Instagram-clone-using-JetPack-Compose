@@ -2,7 +2,6 @@ package com.example.instagramclone
 
 import androidx.annotation.DrawableRes
 import androidx.compose.foundation.Canvas
-import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
@@ -22,19 +21,17 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.ImageBitmap
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.imageResource
-import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.skydoves.landscapist.glide.GlideImage
-
 
 val verticalPadding = 12.dp
 val horizontalPadding = 10.dp
 
 @Composable
 fun ReelsView() {
-    Box(Modifier.background(color = Color.Black)) {
+    Box(Modifier.background(color = Color.Black).height(600.dp)) {
         ReelsList()
         ReelsHeader()
     }
@@ -116,7 +113,8 @@ fun FooterUserAction(reel: Reel, modifier: Modifier) {
         Spacer(modifier = Modifier.height(28.dp))
         Icon(imageVector = Icons.Default.MoreVert, contentDescription = null, tint = Color.White)
         Spacer(modifier = Modifier.height(28.dp))
-        Image(painter= painterResource(id = reel.userImage),
+        GlideImage(
+            imageModel = reel.userImage,
             modifier = Modifier
                 .size(28.dp)
                 .background(color = Color.Gray, shape = RoundedCornerShape(6.dp),)

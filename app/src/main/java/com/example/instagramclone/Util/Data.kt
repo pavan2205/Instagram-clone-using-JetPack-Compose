@@ -6,62 +6,51 @@ object DummyData {
     val reels = listOf<Reel>(
         Reel(
             id = 1,
-            video = "video.mp4",
-            userImage = R.drawable.ckay,
-            userName = "Farhan Roy",
+            video = "lake.mp4",
+            userImage = "https://generated.photos/vue-static/home/hero/4.png",
+            userName = "Marcus clarke",
             isLiked = true,
-            likesCount = 778,
+            likesCount = 678,
             commentsCount = 156,
-            comment = "Wkwkwk..."
+            comment = "Cool Place 🙌..."
         ),
         Reel(
             id = 2,
-            video = "video.mp4",
-            userImage = R.drawable.ckay,
-            userName = "Muhammad Ali",
+            video = "food.mp4",
+            userImage = "https://generated.photos/vue-static/home/hero/7.png",
+            userName = "Emily",
             isLiked = true,
             likesCount = 5923,
             commentsCount = 11,
-            comment = "Awas kamu ya klo pergi"
+            comment = "delicious"
         ),
         Reel(
             id = 3,
-            video = "video.mp4",
-            userImage = R.drawable.ckay,
-            userName = "Christian Juned",
+            video = "icecream.mp4",
+            userImage = "https://generated.photos/vue-static/home/hero/3.png",
+            userName = "Liva sage",
             isLiked = true,
-            likesCount = 2314,
-            comment = "Es krim dingin sedapp",
+            likesCount = 9314,
+            comment = "yummy..🤤",
             commentsCount = 200
         ),
         Reel(
             id = 4,
-            video = "video.mp4",
-            userImage = R.drawable.ckay,
-            userName = "Cak Jhon",
+            video = "soap-bubbles.mp4",
+            userImage = "https://generated.photos/vue-static/home/hero/6.png",
+            userName = "Robert evans",
             isLiked = true,
             likesCount = 786,
-            comment = "Ados slurr",
+            comment = "💙",
             commentsCount = 700
         ),
-        Reel(
-            id = 5,
-            video = "video.mp4",
-            userImage = R.drawable.ckay,
-            userName = "David Dulkader",
-            isLiked = true,
-            likesCount = 1890,
-            comment = "Kerjaan di tengah hutan",
-            commentsCount = 232
-        )
-
     )
 }
 
 data class Reel(
     val id: Int,
     private val video: String,
-    val userImage: Int,
+    val userImage: String,
     val userName: String,
     val isLiked: Boolean = false,
     val likesCount: Int,

@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools" xmlns:android="http://schemas.android.com/apk/res/android">
     <color name="purple_200">#FFBB86FC</color>
     <color name="blue_sky">#14B6FF</color>
     <color name="purple_500">#14B6FF</color>
-    <color name="purple_700">#FF3700B3</color>
+    <color name="purple_700">#DF4AFA</color>
     <color name="teal_200">#FF03DAC5</color>
-    <color name="teal_700">#FF018786</color>
+    <color name="teal_700">#E2E2E2</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
 </resources>

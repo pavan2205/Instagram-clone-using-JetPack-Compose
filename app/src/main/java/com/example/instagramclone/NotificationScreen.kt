@@ -16,6 +16,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.draw.drawBehind
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.SpanStyle
@@ -24,22 +25,23 @@ import androidx.compose.ui.text.font.Font
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.withStyle
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 
 val Thisweekl= listOf(
-    ThisWeekNotification(R.drawable.sethrollins,"Pavan","liked"),
-    ThisWeekNotification(R.drawable.sethrollins,"Pavan","comment"),
-    ThisWeekNotification(R.drawable.sethrollins,"Pavan","following"),
-    ThisWeekNotification(R.drawable.sethrollins,"Pavan","follow"),
-    ThisWeekNotification(R.drawable.sethrollins,"Pavan","liked"),
-    ThisWeekNotification(R.drawable.sethrollins,"Pavan","liked"),
-    ThisWeekNotification(R.drawable.sethrollins,"Pavan","liked"),
-    ThisWeekNotification(R.drawable.sethrollins,"Pavan","comment"),
-    ThisWeekNotification(R.drawable.sethrollins,"Pavan","liked"),
-    ThisWeekNotification(R.drawable.sethrollins,"Pavan","comment"),
-    ThisWeekNotification(R.drawable.sethrollins,"Pavan","comment"),
-    ThisWeekNotification(R.drawable.sethrollins,"Pavan","comment"),
+    ThisWeekNotification(R.drawable.profile3,R.drawable.bg1,"Salena lily","liked"),
+    ThisWeekNotification(R.drawable.profile2,R.drawable.post7,"Liva sage","comment"),
+    ThisWeekNotification(R.drawable.profile7,R.drawable.profile3,"Camilie","following"),
+    ThisWeekNotification(R.drawable.img1,R.drawable.profile3,"Marcus clarke","follow"),
+    ThisWeekNotification(R.drawable.post1,R.drawable.cat,"Emily","liked"),
+    ThisWeekNotification(R.drawable.post2,R.drawable.ckay,"Robert evans","liked"),
+    ThisWeekNotification(R.drawable.profile2,R.drawable.post1,"Liva sage","liked"),
+    ThisWeekNotification(R.drawable.profile3,R.drawable.post2,"Salena lily","comment"),
+    ThisWeekNotification(R.drawable.profile7,R.drawable.post4,"Camilie","liked"),
+    ThisWeekNotification(R.drawable.post1,R.drawable.profile2,"Emily","comment"),
+    ThisWeekNotification(R.drawable.img1,R.drawable.profile3,"Marcus clarke","comment"),
+    ThisWeekNotification(R.drawable.post2,R.drawable.profile7,"Robert evans","comment"),
 )
 @Composable
 fun NotificationScreen(){
@@ -67,7 +69,7 @@ fun FollowRequests(){
                     width = 1.dp, color = Color.LightGray, shape = CircleShape
                 )
                 .padding(3.dp)
-                .clip(CircleShape)
+                .clip(CircleShape), contentScale = ContentScale.Crop
             )
             Text(
                 modifier = Modifier
@@ -90,6 +92,7 @@ fun FollowRequests(){
 }
 data class ThisWeekNotification(
     val image:Int,
+    val image2:Int,
     val name:String,
     val notificationType: String
 )
@@ -99,12 +102,12 @@ fun ThisWeekList(Thisweek:List<ThisWeekNotification>){
     LazyColumn(
         verticalArrangement = Arrangement.spacedBy(5.dp)){
         items(Thisweek) {arrayItem->
-            ThisWeekNotification(image = arrayItem.image, name =arrayItem.name, notificationType = arrayItem.notificationType, modifier = Modifier )
+            ThisWeekNotification(image = arrayItem.image, arrayItem.image2,name =arrayItem.name, notificationType = arrayItem.notificationType, modifier = Modifier )
         }
     }
 }
 @Composable
-fun ThisWeekNotification(image:Int,name:String,notificationType:String,modifier: Modifier){
+fun ThisWeekNotification(image:Int,image2:Int,name:String,notificationType:String,modifier: Modifier){
     when(notificationType){
         "following"->Row(modifier = Modifier
             .fillMaxWidth()
@@ -116,16 +119,17 @@ fun ThisWeekNotification(image:Int,name:String,notificationType:String,modifier:
                         width = 1.dp, color = Color.LightGray, shape = CircleShape
                     )
                     .padding(3.dp)
-                    .clip(CircleShape)
+                    .clip(CircleShape), contentScale = ContentScale.Crop
                 )
                 Spacer(modifier = Modifier.width(8.dp))
                 Text(
                     buildAnnotatedString {
-                        withStyle(style = SpanStyle(fontWeight = FontWeight.Bold, color = Color.Black)) {
+                        withStyle(style = SpanStyle(fontWeight = FontWeight.Bold)) {
                             append(name)
                         }
                         append(" started following you.")
                     }
+                    , modifier = Modifier.width(200.dp)
                 )
             }
             Spacer(modifier = Modifier.weight(1f))
@@ -144,17 +148,17 @@ fun ThisWeekNotification(image:Int,name:String,notificationType:String,modifier:
                         width = 1.dp, color = Color.LightGray, shape = CircleShape
                     )
                     .padding(3.dp)
-                    .clip(CircleShape)
+                    .clip(CircleShape), contentScale = ContentScale.Crop
                 )
                 Spacer(modifier = Modifier.width(8.dp))
                 Text(
                     buildAnnotatedString {
                         append("Follow ")
-                        withStyle(style = SpanStyle(fontWeight = FontWeight.Bold, color = Color.Black)) {
+                        withStyle(style = SpanStyle(fontWeight = FontWeight.Bold)) {
                             append(name)
                         }
                         append(" to see their posts.")
-                    }
+                    }, modifier = Modifier.width(200.dp)
                 )
             }
             Spacer(modifier = Modifier.weight(1f))
@@ -173,12 +177,12 @@ fun ThisWeekNotification(image:Int,name:String,notificationType:String,modifier:
                         width = 1.dp, color = Color.LightGray, shape = CircleShape
                     )
                     .padding(3.dp)
-                    .clip(CircleShape)
+                    .clip(CircleShape), contentScale = ContentScale.Crop
                 )
                 Spacer(modifier = Modifier.width(8.dp))
                 Text(
                     buildAnnotatedString {
-                        withStyle(style = SpanStyle(fontWeight = FontWeight.Bold, color = Color.Black)) {
+                        withStyle(style = SpanStyle(fontWeight = FontWeight.Bold)) {
                             append(name)
                         }
                         append(" liked your post.")
@@ -186,7 +190,7 @@ fun ThisWeekNotification(image:Int,name:String,notificationType:String,modifier:
                 )
             }
             Spacer(modifier = Modifier.weight(1f))
-            Image(painter = painterResource(id = R.drawable.sethrollins) , contentDescription = null,modifier=Modifier.size(50.dp))
+            Image(painter = painterResource(id = image2) , contentDescription = null,modifier=Modifier.size(50.dp), contentScale = ContentScale.Crop)
         }
         "comment"->Row(modifier = Modifier
             .fillMaxWidth()
@@ -198,12 +202,12 @@ fun ThisWeekNotification(image:Int,name:String,notificationType:String,modifier:
                         width = 1.dp, color = Color.LightGray, shape = CircleShape
                     )
                     .padding(3.dp)
-                    .clip(CircleShape)
+                    .clip(CircleShape), contentScale = ContentScale.Crop
                 )
                 Spacer(modifier = Modifier.width(8.dp))
                 Text(
                     buildAnnotatedString {
-                        withStyle(style = SpanStyle(fontWeight = FontWeight.Bold, color = Color.Black)) {
+                        withStyle(style = SpanStyle(fontWeight = FontWeight.Bold)) {
                             append(name)
                         }
                         append(" commented on your post.")
@@ -211,7 +215,13 @@ fun ThisWeekNotification(image:Int,name:String,notificationType:String,modifier:
                 )
             }
             Spacer(modifier = Modifier.weight(1f))
-            Image(painter = painterResource(id = image) , contentDescription = null,modifier=Modifier.size(50.dp))
+            Image(painter = painterResource(id = image2) , contentDescription = null,modifier=Modifier.size(50.dp), contentScale = ContentScale.Crop)
         }
     }
+}
+
+@Preview(showSystemUi = true, showBackground = true)
+@Composable
+fun NotificationScreenPreview(){
+    NotificationScreen()
 }
